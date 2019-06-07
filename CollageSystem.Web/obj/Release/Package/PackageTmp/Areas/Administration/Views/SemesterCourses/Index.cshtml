@@ -1,0 +1,114 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 dir="rtl">مواد التيرم الدراسى</h3>
+
+
+
+
+<table class="table " dir="rtl">
+    <tr>
+        <td scope="col">
+            <label><strong>اختار القسم</strong></label>
+        </td>
+
+        <td scope="col">
+
+            @Html.DropDownList("DepartmentID", ViewBag.Departments as SelectList, "اختر القسم", htmlAttributes: new { id = "ddlDepartment", onchange = "document.location.href = '/Administration/SemesterCourses/Index?DepID=' + this.options[this.selectedIndex].value;", @class = "form-control" })
+
+        </td>
+        <td></td>
+
+        <td>
+            <button class="btn btn-success" onclick="DepCourses(ddlDepartment.options[ddlDepartment.selectedIndex].value)">اضافه مواد</button>
+
+        </td>
+    </tr>
+
+</table>
+
+<table class="table table-bordered" dir="rtl">
+    <tr>
+        <th>
+            كود الماده
+        </th>
+        <th>
+            اسم الكورس
+        </th>
+        <th>
+            عدد الساعات النظريه
+        </th>
+        <th>
+            عدد الساعات العملى
+        </th>
+        <th>
+            عدد الساعات المعتمده
+        </th>
+        <th>
+            متطلب الماده
+        </th>
+
+        <th>
+            كودالماده المتطلبه
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTheoreticalHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPractiseHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCreditHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseRef.SymbolMean)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours1.CourseCode)
+                </td>
+                <td>
+
+
+                    @Html.ActionLink("حذف", "Delete", new { CourseID = item.CourseID }, new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+                <strong>اضافه ماده</strong>
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

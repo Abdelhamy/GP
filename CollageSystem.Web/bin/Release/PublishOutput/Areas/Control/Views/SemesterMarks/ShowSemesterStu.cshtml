@@ -1,0 +1,86 @@
+﻿
+@model IEnumerable<CollageSystem.Core.User>
+
+@{
+    ViewBag.Title = "طلاب التيرم";
+}
+
+<h2>طلاب التيرم : @Model.Count()</h2>
+<table class="table table-bordered table-condensed">
+    <tr>
+    <tr>
+        <th>
+            كود الطالب
+        </th>
+        <th>
+            الرقم القومى
+        </th>
+        <th>
+            الاسم الاول
+        </th>
+        <th>
+            الاسم الاخير
+        </th>
+        <th>
+            عنوان البريد
+        </th>
+        <th>
+            رقم الهاتف
+        </th>
+        <th>
+            القسم
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepName)
+            </td>
+            <td>
+                @Html.ActionLink("مواد الطالب", "SemesterCourses", new { StuID = item.ID }, new { @class = "btn btn-success" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

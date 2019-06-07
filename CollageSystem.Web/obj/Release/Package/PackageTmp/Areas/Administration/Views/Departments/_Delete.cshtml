@@ -1,0 +1,67 @@
+﻿@model CollageSystem.Core.Department
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف</h2>
+
+<h3>هل انت متأكد من حذف هذا القسم؟</h3>
+<div>
+    <table dir="rtl" class="table table-bordered">
+        <tr>
+            <td>
+                كود القسم
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.DepCode)
+            </td>
+        </tr>
+        <tr>
+            <td>
+               اسم القسم
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.DepName)
+
+            </td>
+        </tr>
+        <tr>
+            <td>رقم القسم</td>
+            <td>
+                @Html.DisplayFor(model => model.DepPhone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+              الطابق
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.DepFloorNumber)
+
+            </td>
+        </tr>
+        <tr>
+            <td> رئيس القسم</td>
+            <td>
+                @Html.DisplayFor(model => model.User.FirstName)  @Html.DisplayFor(model => model.User.LastName)
+
+
+            </td>
+        </tr>
+    
+
+    </table>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("الرجوع لقائمه المواد", "Index", null, new { @class = "btn btnInfo" })
+        </div>
+    }
+</div>

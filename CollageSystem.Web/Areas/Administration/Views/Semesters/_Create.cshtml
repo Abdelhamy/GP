@@ -1,0 +1,68 @@
+﻿@model CollageSystem.Core.Semester
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<table dir="rtl" class="table table-condensed table-bordered">
+    <tr>
+        <td>
+            السنة
+        </td>
+        <td>
+            @Html.DropDownList("Year", Enumerable.Range(2000, DateTime.Now.Year - 1999).Select(x => new SelectListItem { Text = x.ToString() }), htmlAttributes: new { @class = "form-control" })
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            التيرم الدراسى
+        </td>
+        <td>
+            @Html.DropDownList("SemNumber", null, "-- اختر --", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SemNumber, "", new { @class = "text-danger" })
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            تعديل الطلاب
+        </td>
+        <td>
+            @Html.CheckBoxFor(x => x.Editable, true)
+            @Html.ValidationMessageFor(model => model.Editable, "", new { @class = "text-danger" })
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            انتهى التيرم
+        </td>
+        <td>
+            @Html.CheckBoxFor(x => x.finished, true)
+            @Html.ValidationMessageFor(model => model.finished, "", new { @class = "text-danger" })
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("الرجوع لقائمة العرض", "Index", null, new { @class = "btn btn-info" })
+
+        </td>
+        <td>
+            <input type="submit" value="أضافه" class="btn btn-success" />
+
+        </td>
+    </tr>
+</table>
+  
+}
+
+

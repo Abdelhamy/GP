@@ -1,0 +1,80 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>إضافة مادة جديدة</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <table class="table">
+        <tr>
+            <th>
+                كود المادة
+            </th>
+            <th>
+                اسم المادة
+            </th>
+            <th>
+                عدد الساعات النظرى
+            </th>
+            <th>
+                عدد الساعات العملى
+            </th>
+            <th>
+                عدد الساعات المعتمدة
+            </th>
+            <th>
+                الماده متطلب
+            </th>
+            <th>
+                كود الماده المتطلبة
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTheoreticalHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPractiseHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCreditHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseRef.SymbolMean)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours1.CourseCode)
+                </td>
+                <td>
+                    @Html.ActionLink("أضافه وتعديل المواد", "AddCourseToStudent", "StudentSemesters" ,new { courseID = item.CourseID }, new { @class = "btn btn-default" })
+
+                    @*<a onclick="AddCourseToStudent(@item.CourseID)" class="btn btn-default">
+                        <span>
+                            إضافة
+                        </span>
+                    </a>*@
+
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+

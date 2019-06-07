@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div id="accordion">
+    <h4>
+        <img src="~/Images/search.png" />
+    </h4>
+    
+
+    @*<form class="form-inline" method="post" asp-action="@Url.Action("Home","Index")">*@
+    <div>
+        @using (Ajax.BeginForm("Search", "Courses", new AjaxOptions()
+        {
+            UpdateTargetId = "change",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "Post",
+            LoadingElementId = "progress"
+
+        }))
+        {
+        <table class="table">
+            <tr>
+                <td>
+                    كود الماده
+                </td>
+                <td>
+                    @Html.TextBox("CourseCode", ViewBag.CourseCode as string, new { @id = "CourseCode", @class = "form-control", placeholder = "كود الماده" })
+                </td>
+                <td></td>
+
+                <td>
+                    اسم الماده
+                </td>
+                <td>
+                    @Html.TextBox("CourseName", ViewBag.CourseCode as string, new { @id = "CourseName", @class = "form-control", placeholder = "كود الماده" })
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    متطلب الماده
+                </td>
+                <td>
+                    @Html.DropDownList("CourseRefID", ViewBag.CourseRefID as SelectList, "اختر القسم", htmlAttributes: new { id = "ddlCourseRef", onchange = "document.getElementById('CourseRefIDSelected').value = (this.options[this.selectedIndex].value)", @class = "form-control" })
+                    @Html.Hidden("CourseRefIDSelected", 0, new { @id = "CourseRefIDSelected" })
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+
+                <td>
+                    <input type="submit" value="بحث" class="btn btn-default" />
+
+                </td>
+                <td></td>
+
+                <td></td>
+
+            </tr>
+        </table>
+
+
+        }
+    </div>
+</div>
+<p>
+    <h2 style="font-family:'Amiri', serif">المواد الدراسيه</h2>
+
+    @*@Html.ActionLink("اضافه جديد", "Create", null, new { @class = "btn btn-success" })*@
+    <a onclick="CreateCourse()" class="btn btn-success">
+        <img src="~/Images/add.png" />
+
+        <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+            أضافة مادة 
+        </span>
+    </a>
+    <a onclick="CoursesRef()" class="btn btn-info">
+        <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+            متطلبات المواد
+        </span>
+    </a>
+</p>
+
+<div id="change">
+    @Html.Partial("_index", Model)
+</div>
+
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>

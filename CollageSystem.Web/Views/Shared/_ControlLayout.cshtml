@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - الكنترول</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
+</head>
+
+<body dir="rtl">
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+        <img src="~/Images/logo.png" class="navbar-brand" alt="" title="" />
+
+        <a class="navbar-brand mr-1" style="margin-bottom:-22px" href="#">
+            <p style="font-style:italic">كليه علوم جامعه بنها</p> 
+
+        </a>
+        <div style=" float: left; width: 225px;">
+            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" style="margin-right: 7px; margin-top: 14px;font-size: 20px;" id="sidebarToggle" href="#">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Navbar Search -->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+
+            </div>
+        </form>
+
+        <!-- Navbar -->
+        @if (Session["UserName"] != null)
+        {
+            <p style="margin-top:20px; color:white; ">
+                مرحبا بك  @Session["UserName"]
+            </p>
+        }
+        else
+        {
+            Response.Redirect("~/GP/Account/Login");
+        }
+
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+
+                    @Html.ActionLink("تسجيل الخروج", "Logout", "Account", new { Area = "" }, new { @class = "dropdown-item" })
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar-->
+
+
+        <ul class="sidebar navbar-nav" id="ul-bar">
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index","SemesterMarks")">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>التيرم الدراسى</span>
+                </a>
+            </li>
+          
+        </ul>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p style="font-family:'Arabic Typesetting' ; font-size:large">&copy; @DateTime.Now.Year - مشروع تخرج دفعه 35 علوم بنها</p>
+            </footer>
+        </div>
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+
+
+</html>

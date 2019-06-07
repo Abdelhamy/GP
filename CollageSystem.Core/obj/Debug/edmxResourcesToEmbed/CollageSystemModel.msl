@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CollageSystemModelStoreContainer" CdmEntityContainer="CollageSystemEntities">
+    <EntitySetMapping Name="CourseRefs">
+      <EntityTypeMapping TypeName="CollageSystemModel.CourseRef">
+        <MappingFragment StoreEntitySet="CourseRef">
+          <ScalarProperty Name="CRefID" ColumnName="CRefID" />
+          <ScalarProperty Name="CRefSymbol" ColumnName="CRefSymbol" />
+          <ScalarProperty Name="SymbolMean" ColumnName="SymbolMean" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="CollageSystemModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CoursePrerequsiteID" ColumnName="CoursePrerequsiteID" />
+          <ScalarProperty Name="CTheoreticalHours" ColumnName="CTheoreticalHours" />
+          <ScalarProperty Name="CPractiseHours" ColumnName="CPractiseHours" />
+          <ScalarProperty Name="CCreditHours" ColumnName="CCreditHours" />
+          <ScalarProperty Name="CourseRefID" ColumnName="CourseRefID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursesSemesters">
+      <EntityTypeMapping TypeName="CollageSystemModel.CoursesSemester">
+        <MappingFragment StoreEntitySet="CoursesSemester">
+          <ScalarProperty Name="SemID" ColumnName="SemID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="CollageSystemModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+          <ScalarProperty Name="DepCode" ColumnName="DepCode" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+          <ScalarProperty Name="DepPhone" ColumnName="DepPhone" />
+          <ScalarProperty Name="DepFloorNumber" ColumnName="DepFloorNumber" />
+          <ScalarProperty Name="DepManegerID" ColumnName="DepManegerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPAs">
+      <EntityTypeMapping TypeName="CollageSystemModel.GPA">
+        <MappingFragment StoreEntitySet="GPA">
+          <ScalarProperty Name="GPAID" ColumnName="GPAID" />
+          <ScalarProperty Name="GPAValue" ColumnName="GPAValue" />
+          <ScalarProperty Name="GPAMean" ColumnName="GPAMean" />
+          <ScalarProperty Name="minGPA" ColumnName="minGPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="CollageSystemModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="PermissionRole" ColumnName="PermissionRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semesters">
+      <EntityTypeMapping TypeName="CollageSystemModel.Semester">
+        <MappingFragment StoreEntitySet="Semesters">
+          <ScalarProperty Name="SemID" ColumnName="SemID" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="SemNumber" ColumnName="SemNumber" />
+          <ScalarProperty Name="Editable" ColumnName="Editable" />
+          <ScalarProperty Name="Added" ColumnName="Added" />
+          <ScalarProperty Name="finished" ColumnName="finished" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemesterStudents">
+      <EntityTypeMapping TypeName="CollageSystemModel.SemesterStudent">
+        <MappingFragment StoreEntitySet="SemesterStudent">
+          <ScalarProperty Name="SemStuID" ColumnName="SemStuID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+          <ScalarProperty Name="MaxCreditHours" ColumnName="MaxCreditHours" />
+          <ScalarProperty Name="SemesterGPA" ColumnName="SemesterGPA" />
+          <ScalarProperty Name="SemesterHours" ColumnName="SemesterHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemNumbers">
+      <EntityTypeMapping TypeName="CollageSystemModel.SemNumber">
+        <MappingFragment StoreEntitySet="SemNumbers">
+          <ScalarProperty Name="SemNumber1" ColumnName="SemNumber" />
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemStudentCourses">
+      <EntityTypeMapping TypeName="CollageSystemModel.SemStudentCours">
+        <MappingFragment StoreEntitySet="SemStudentCourses">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SemStuID" ColumnName="SemStuID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="PractiseMarks" ColumnName="PractiseMarks" />
+          <ScalarProperty Name="OralMarks" ColumnName="OralMarks" />
+          <ScalarProperty Name="MidTermMarks" ColumnName="MidTermMarks" />
+          <ScalarProperty Name="YearWorkMarks" ColumnName="YearWorkMarks" />
+          <ScalarProperty Name="FinalMarks" ColumnName="FinalMarks" />
+          <ScalarProperty Name="passed" ColumnName="passed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CollageSystemModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+
+<table class="table tab-content table-bordered"  dir="rtl">
+    <tr>
+        <th>
+           كود الكورس
+        </th>
+        <th>
+            أسم الكورس
+        </th>
+        <th>
+           عدد الساعات النظرى
+        </th>
+        <th>
+          عدد الساعات العملى 
+        </th>
+        <th>
+            عدد الساعات المعتمدة
+        </th>
+        <th>
+           الماده متطلب 
+        </th>
+        <th>
+            كود الماده المتطلبه
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CTheoreticalHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPractiseHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCreditHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseRef.SymbolMean)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cours1.CourseCode)
+            </td>
+            <td>
+                @Html.ActionLink("أضافه الماده", "AddCourseToTerm", new { CourseID = item.CourseID, DepID = ViewBag.DepID }, new { @class = "btn btn-success" })
+
+            </td>
+        </tr>
+    }
+
+</table>

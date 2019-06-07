@@ -1,0 +1,47 @@
+﻿@model CollageSystem.Core.CourseRef
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    <h4>اضافة متطلب جديد</h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table class="table table-condensed table-condensed" dir="rtl">
+        <tr>
+            <td>
+                رمز المتطلب
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CRefSymbol, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CRefSymbol, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+               معنى الرمز
+            </td>
+            <td>
+                @Html.EditorFor(model => model.SymbolMean, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SymbolMean, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a onclick="CoursesRef()" class="btn btn-info">
+                    <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+                        الرجوع لقائمة المتطلبات
+                    </span>
+                </a>
+            </td>
+            <td>
+                <input type="submit" value="أضافة" class="btn btn-default" />
+
+            </td>
+        </tr>
+    </table>
+}

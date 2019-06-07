@@ -1,0 +1,111 @@
+﻿@model CollageSystem.Core.User
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>تعديل الطالب</h2>
+
+
+@using (Ajax.BeginForm("Edit", "Student", new AjaxOptions()
+{
+    HttpMethod = "Post",
+    OnFailure = "OnFailureStu()",
+    OnSuccess = "OnSuccessStu()",
+    LoadingElementId = "progress"
+
+
+}))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    @Html.AntiForgeryToken()
+
+
+    <table class="table table-condensed table-bordered" dir="rtl">
+        <tr>
+            <td>
+                كود الطالب
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                الرقم القومى
+            </td>
+            <td>
+                @Html.EditorFor(model => model.SSN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                الاسم الأول
+            </td>
+            <td>
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                الاسم الاخير
+            </td>
+            <td>
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                البريد الالكترونى
+            </td>
+            <td>
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                رقم المحمول
+            </td>
+            <td>
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    الصوره
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                </td>
+            </tr>*@
+        <tr>
+            <td>
+                القسم
+            </td>
+            <td>
+                @Html.DropDownList("DepartmentID", null, "-- اختر --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("الرجوع الى قائمه الطلاب", "Index", null, new { @class = "btn btn-info" })
+
+            </td>
+            <td>
+                <input type="submit" value="تعديل" class="btn btn-success" />
+
+            </td>
+        </tr>
+    </table>
+}
+
+

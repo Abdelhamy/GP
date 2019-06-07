@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CollageSystem.Core.Semester>
+
+@{
+    ViewBag.Title = "التيرم الدراسى";
+
+}
+<div dir="rtl">
+    <h2>التيرم</h2>
+
+    <table class="table table-bordered table-condensed " dir="rtl">
+        <tr>
+            <th style="text-align: right">
+                السنه
+            <th style="text-align: right">
+                الترم
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.Added && !(item.Editable) && !(item.finished))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SemNumber1.Desc)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("عرض الطلاب", "ShowSemesterStu", new { SemID = item.SemID }, new { @class = "btn btn-success" })
+
+
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

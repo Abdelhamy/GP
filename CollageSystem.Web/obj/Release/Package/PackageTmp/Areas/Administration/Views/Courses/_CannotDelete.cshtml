@@ -1,0 +1,80 @@
+﻿@model  CollageSystem.Core.Cours
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف</h2>
+
+<h3>هل انت متأكد من حذف هذه المادة؟</h3>
+<div>
+    <table dir="rtl" class="table table-bordered">
+        <tr>
+            <td>
+                كود المادة
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CourseCode)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                اسم الكورس
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CourseName)
+
+            </td>
+        </tr>
+        <tr>
+            <td>عدد الساعات النظرى</td>
+            <td>
+                @Html.DisplayFor(model => model.CTheoreticalHours)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                عدد الساعات العملى
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CPractiseHours)
+
+            </td>
+        </tr>
+        <tr>
+            <td> عدد الساعات المعتمدة</td>
+            <td>
+                @Html.DisplayFor(model => model.CCreditHours)
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                الماده متطلب
+            </td>
+            <td>
+
+                @Html.DisplayFor(model => model.CourseRef.SymbolMean)
+            </td>
+        </tr>
+        <tr>
+            <td>كود الماده المتطلبه</td>
+            <td>
+                @Html.DisplayFor(model => model.Cours1.CourseCode)
+            </td>
+        </tr>
+
+    </table>
+  
+   
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <p> لا يمكنك حذف هذه الماده لانها متطلب لماده اخرى او سجلت فى تيرم دراسى من قبل</p>
+            @Html.ActionLink("الرجوع لقائمه المواد", "Index", null, new { @class = "btn btnInfo" })
+        </div>
+    }
+</div>

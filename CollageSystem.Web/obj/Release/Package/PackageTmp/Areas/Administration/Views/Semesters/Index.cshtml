@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CollageSystem.Core.Semester>
+
+@{
+    ViewBag.Title = "Index";
+    var finished = false;
+    if (Model.Count() != 0)
+    {
+        if (Model.Last().finished)
+        {
+            finished = true;
+        }
+    }
+}
+<div dir="rtl">
+    <h2>التيرم</h2>
+    @if (Model.Count() == 0 || finished)
+    {
+        <p>
+            <a onclick="CreateSem()" class="btn btn-success">
+                <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+                    أضافة تيرم جديد
+                </span>
+            </a>
+        </p>
+    }
+    <table class="table table-bordered table-condensed " dir="rtl">
+        <tr>
+            <th style="text-align: right">
+                السنه
+            <th style="text-align: right">
+                الترم
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SemNumber1.Desc)
+                </td>
+                <td>
+                    <a onclick="EditSem(@item.SemID)" class="btn btn-default">
+                        <span>
+                            تعديل
+                        </span>
+                    </a>
+                    |
+                    @Html.ActionLink("تفاصيل مواد التيرم", "DetailsOFTerm", new { id = item.SemID }, new { @class = "btn btn-info" })
+                    |
+                    @if (!item.Added && !item.finished)
+                    {
+                        @Ajax.ActionLink("أضافه التيرم الى الطلاب", "AddTermToStudent", new { SemID = item.SemID },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                LoadingElementId = "progress",
+                                OnSuccess="GoHome()"
+                            }, new { @class = "btn btn-success" })
+
+                    }
+                    else
+                    {
+                        @Html.ActionLink("عرض الطلاب والمواد", "ShowSemesterStu", new { SemID = item.SemID }, new { @class = "btn btn-success" })
+
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>
+

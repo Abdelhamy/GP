@@ -1,0 +1,123 @@
+﻿@model CollageSystem.Core.Cours
+
+@{
+
+    ViewBag.Title = "Create";
+}
+
+<h2>أضافه مادة</h2>
+
+
+@*@using (Html.BeginForm())
+    {*@
+@using (Ajax.BeginForm("Create", "Courses", new AjaxOptions()
+{
+    HttpMethod = "Post",
+    OnFailure = "OnFailure()",
+    OnSuccess = "OnSuccess()",
+    LoadingElementId = "progress"
+
+
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <table class="table table-bordered" dir="rtl">
+        <tr>
+            <td>
+                كود المادة :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CourseCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CourseCode, "", new { @class = "text-danger" })
+
+            </td>
+        
+
+        </tr>
+        <tr>
+            <td>
+                اسم الماده :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CourseName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                المادة المتطلبة :
+            </td>
+            <td>
+                @Html.DropDownList("CoursePrerequsiteID", null, "-- اختر --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CoursePrerequsiteID, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                عدد الساعات النظرى :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CTheoreticalHours, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CTheoreticalHours, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                عدد الساعات العملى :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CPractiseHours, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CPractiseHours, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                عدد الساعات المعتمدة :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CCreditHours, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CCreditHours, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                متطلب المادة :
+            </td>
+            <td>
+                @Html.DropDownList("CourseRefID", null, "-- اختر --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseRefID, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>
+                @Html.ActionLink("الرجوع لقائمه المواد", "Index", null, new { @class = "btn btn-info" })
+
+            </td>
+            <td>
+                <input type="submit" value="أضافه" class="btn btn-success" />
+
+            </td>
+
+        </tr>
+    </table>
+
+
+}
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>
+
+

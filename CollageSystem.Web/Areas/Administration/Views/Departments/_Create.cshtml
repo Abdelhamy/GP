@@ -1,0 +1,96 @@
+﻿@model CollageSystem.Core.Department
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>أضافه قسم</h2>
+
+
+@using (Ajax.BeginForm("Create", "Departments", new AjaxOptions()
+{
+    HttpMethod = "Post",
+    OnFailure = "OnFailureDep()",
+    OnSuccess = "OnSuccessDep()",
+    LoadingElementId = "progress"
+
+
+}))
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <table class="table table-bordered" dir="rtl">
+        <tr>
+            <td>
+                كود القسم :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.DepCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepCode, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                اسم القسم :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.DepName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepName, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                رقم القسم :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.DepPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepPhone, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                الطابق :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.DepFloorNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepFloorNumber, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                رئيس القسم :
+            </td>
+            <td>
+                @Html.DropDownList("DepManegerID", null, "-- اختر --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepManegerID, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("الرجوع لقائمه الأقسام", "Index", "Departments", null, new { @Class = "btn btn-info" })
+
+            </td>
+            <td >
+                <input type="submit" value="أضافه" class="btn btn-success" />
+            </td>
+
+        </tr>
+    </table>
+
+}
+
+<div>
+
+</div>
+
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>

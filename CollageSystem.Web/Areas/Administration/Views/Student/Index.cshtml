@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CollageSystem.Core.User>
+
+@{
+    ViewBag.Title = "الطلاب";
+}
+<div id="accordion">
+    <h4>
+        <img src="~/Images/search.png" />
+    </h4>
+
+
+    @*<form class="form-inline" method="post" asp-action="@Url.Action("Home","Index")">*@
+    <div>
+        @using (Ajax.BeginForm("Search", "Student", new AjaxOptions()
+        {
+            UpdateTargetId = "change",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "Post",
+            LoadingElementId = "progress"
+
+        }))
+        {
+            <table class="table">
+
+                <tr>
+                    <td>
+                        القسم
+                    </td>
+                    <td>
+                        @Html.DropDownList("DepID", ViewBag.DepID as SelectList, "اختر القسم", htmlAttributes: new { id = "DepID", onchange = "document.getElementById('DepIDSelected').value = (this.options[this.selectedIndex].value)", @class = "form-control" })
+                        @Html.Hidden("DepIDSelected", 0, new { @id = "DepIDSelected" })
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="بحث" class="btn btn-default" />
+
+                    </td>
+                </tr>
+
+            </table>
+
+
+        }
+    </div>
+</div>
+
+
+<br />
+<p>
+    <a onclick="CreateStu()" class="btn btn-success">
+        <img src="~/Images/add.png" />
+        <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+            أضافه طالب
+        </span>
+    </a>
+    @Ajax.ActionLink("أعاده تهيئه كلمات المرور", "RestAllPasswords", null, new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "progress",
+        OnSuccess = "OnSuccessStu()"
+
+    }, new { @class = "btn btn-info" })
+
+</p>
+<div id="change">
+    @Html.Partial("_Index", Model)
+</div>
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>

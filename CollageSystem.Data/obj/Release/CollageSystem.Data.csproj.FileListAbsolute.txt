@@ -1,0 +1,15 @@
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Data.dll.config
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Data.dll
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Data.pdb
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Core.dll
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\EntityFramework.dll
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Core.pdb
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\CollageSystem.Core.dll.config
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\EntityFramework.xml
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\obj\Release\CollageSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\obj\Release\CollageSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\obj\Release\CollageSystem.Data.csproj.CopyComplete
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\obj\Release\CollageSystem.Data.dll
+C:\Users\Abdelhamy\Documents\GitHub\graduationProject\CollageSystem.Data\obj\Release\CollageSystem.Data.pdb

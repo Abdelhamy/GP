@@ -1,0 +1,105 @@
+﻿@model IEnumerable<CollageSystem.Core.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>الدكاتره</h2>
+
+<p>
+    <a onclick="CreateIns()" class="btn btn-success">
+        <img src="~/Images/add.png" />
+
+        <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+            أضافة دكتور جديد
+        </span>
+    </a>
+</p>
+<table class="table table-bordered table-condensed" dir="rtl">
+    <tr>
+        <th>
+            كود الدكتور
+        </th>
+        <th>
+            الرقم القومى
+        </th>
+        <th>
+            الاسم الاول
+        </th>
+        <th>
+            الاسم الاخير
+        </th>
+        <th>
+            عنوان البريد
+        </th>
+        <th>
+            رقم الهاتف
+        </th>
+        <th>
+            القسم
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepName)
+            </td>
+
+            <td>
+                <a onclick="EditIns(@item.ID)" class="btn btn-default">
+                    <img src="~/Images/edit.png" />
+
+                </a>
+                |
+                <a onclick="DeleteIns(@item.ID)" class="btn btn-danger">
+                    <img src="~/Images/delete.png" />
+
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

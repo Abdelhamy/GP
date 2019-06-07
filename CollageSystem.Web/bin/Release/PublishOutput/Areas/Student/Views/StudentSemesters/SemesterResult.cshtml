@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CollageSystem.Core.SemStudentCours>
+
+@{
+    ViewBag.Title = "SemesterResult";
+}
+
+<h2>نتيجه الترم</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PractiseMarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OralMarks)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.MidTermMarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearWorkMarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalMarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cours.CourseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterStudent.SemStuID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PractiseMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OralMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidTermMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearWorkMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cours.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemesterStudent.SemStuID)
+        </td>
+       
+    </tr>
+}
+
+</table>

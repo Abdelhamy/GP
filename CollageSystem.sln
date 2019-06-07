@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollageSystem.Core", "CollageSystem.Core\CollageSystem.Core.csproj", "{FB2E0818-8846-48C0-8E8E-822B505F2EE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollageSystem.Data", "CollageSystem.Data\CollageSystem.Data.csproj", "{F3BAE5A8-A926-4B75-BDFB-23A84D7E7890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollageSystem.Services", "CollageSystem.Services\CollageSystem.Services.csproj", "{957A19AF-58DD-46C5-913F-BC265DF0B7BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollageSystem.Web", "CollageSystem.Web\CollageSystem.Web.csproj", "{9A853FC1-C224-4D78-B2B3-A472AEFE6A17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB2E0818-8846-48C0-8E8E-822B505F2EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2E0818-8846-48C0-8E8E-822B505F2EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2E0818-8846-48C0-8E8E-822B505F2EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2E0818-8846-48C0-8E8E-822B505F2EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BAE5A8-A926-4B75-BDFB-23A84D7E7890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BAE5A8-A926-4B75-BDFB-23A84D7E7890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BAE5A8-A926-4B75-BDFB-23A84D7E7890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BAE5A8-A926-4B75-BDFB-23A84D7E7890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957A19AF-58DD-46C5-913F-BC265DF0B7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957A19AF-58DD-46C5-913F-BC265DF0B7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957A19AF-58DD-46C5-913F-BC265DF0B7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957A19AF-58DD-46C5-913F-BC265DF0B7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A853FC1-C224-4D78-B2B3-A472AEFE6A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A853FC1-C224-4D78-B2B3-A472AEFE6A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A853FC1-C224-4D78-B2B3-A472AEFE6A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A853FC1-C224-4D78-B2B3-A472AEFE6A17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80C18DC5-C270-4EBD-B9E7-FAA648296A53}
+	EndGlobalSection
+EndGlobal

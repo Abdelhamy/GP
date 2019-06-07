@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CollageSystem.Core.CourseRef>
+
+@{
+                /**/
+   ViewBag.Title = "Index";
+}
+
+<h2>متطلبات المواد</h2>
+
+<p>
+    <a onclick="CreateCourseRef()" class="btn btn-success">
+        <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+            أضافة متطلب جديد
+        </span>
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            رمز المتطلب
+        </th>
+        <th>
+            معنى الرمز
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CRefSymbol)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SymbolMean)
+    </td>
+    <td>
+        @if(!(item.CRefID == 2007 || item.CRefID == 2008))
+        {
+
+        <a onclick="EditCourseRef(@item.CRefID)" class="btn btn-default">
+            <span>
+                تعديل
+            </span>
+        </a>
+        <a onclick="DeleteCourseRef(@item.CRefID)" class="btn btn-danger">
+            <span>
+                حذف
+            </span>
+        </a>
+        }
+    </td>
+
+         
+
+</tr>
+}
+
+</table>
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

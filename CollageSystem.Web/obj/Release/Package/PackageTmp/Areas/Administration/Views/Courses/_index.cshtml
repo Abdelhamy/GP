@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+
+
+<table class="table tab-content table-bordered" >
+    <tr>
+        <th>
+            كود المادة
+        </th>
+        <th>
+            اسم المادة
+        </th>
+        <th>
+            عدد الساعات النظرى
+        </th>
+        <th>
+            عدد الساعات العملى
+        </th>
+        <th>
+            عدد الساعات المعتمدة
+        </th>
+        <th>
+            الماده متطلب
+        </th>
+        <th>
+            كود الماده المتطلبة
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTheoreticalHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPractiseHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCreditHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseRef.SymbolMean)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours1.CourseCode)
+                </td>
+                <td>
+                    <a onclick="EditCourse(@item.CourseID)" class="btn btn-default">
+                        <img src="~/Images/edit.png" />
+
+                    </a>
+                    |
+                    <a onclick="DeleteCourse(@item.CourseID)" class="btn btn-danger">
+                        <img src="~/Images/delete.png" />
+                      
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+<div class="modal fade" id="myModal1" dir="rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <br />
+            </div>
+            <div id="myModalBodyDiv1">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

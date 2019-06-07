@@ -1,0 +1,48 @@
+﻿@model CollageSystem.Core.CourseRef
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف</h2>
+
+<h3>هل انت متأكد لحذف هذا المتطلب</h3>
+
+<table dir="rtl" class="table table-bordered table-condensed">
+    <tr>
+        <td>
+            رمز المتطلب
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CRefSymbol)
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            معنى الرمز
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SymbolMean)
+
+        </td>
+    </tr>
+
+</table>
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            لا يمكنك حذف هذا المتطلب  |
+            <a onclick="CoursesRef()" class="btn btn-info">
+                <span style="font-family:'Amiri', serif; color:#fff" aria-hidden="true">
+                    الرجوع لقائمة المتطلبات
+                </span>
+            </a>
+        </div>
+    }
+</div>

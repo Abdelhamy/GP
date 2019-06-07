@@ -1,0 +1,120 @@
+﻿@model IEnumerable<CollageSystem.Core.SemStudentCours>
+@{
+    double? SemGPA = 0.0;
+    if (@Model.Count() != 0)
+    {
+        SemGPA = Model.ToList()[0].SemesterStudent.SemesterGPA;
+        if(SemGPA == null)
+        {
+            SemGPA = 0;
+        }
+    }
+}
+
+<p> تم تسجيل : @Model.Count() ماده</p>
+<p> المعدل التراكمى للتيرم : @SemGPA</p>
+<table class="table">
+    <tr>
+        <th>
+            اسم الكورس
+            /
+            كود الكورس
+
+        </th>
+        <th>
+            درجه العملى
+        </th>
+        <th>
+            درجه الشفوى
+        </th>
+        <th>
+            درجه الميدتيرم
+        </th>
+        <th>
+            درجات اعمال السنه
+        </th>
+        <th>
+            درجه الامتحان النظرى
+        </th>
+        <th>
+            ناجح
+        </th>
+        <th>
+            التقدير
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cours.CourseName)
+                /
+                @Html.DisplayFor(modelItem => item.Cours.CourseCode)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PractiseMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OralMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidTermMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearWorkMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passed)
+            </td>
+
+            @if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 90)
+            {
+                <td>A+ / 4.0</td>
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 85)
+            {
+                <td>A- / 3.7</td>
+
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 80)
+            {
+                <td>B+ / 3.3</td>
+
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 75)
+            {
+                <td>B / 3.0 </td>
+
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 70)
+            {
+                <td>B- / 2.7 </td>
+
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 65)
+            {
+                <td>C+ / 2.3 </td>
+
+            }
+            else if (item.FinalMarks + item.OralMarks + item.PractiseMarks + item.YearWorkMarks + item.MidTermMarks >= 60)
+            {
+                <td>C / 2.0</td>
+
+            }
+            else
+            {
+                <td>F / راسب</td>
+
+            }
+
+
+        </tr>
+    }
+
+</table>

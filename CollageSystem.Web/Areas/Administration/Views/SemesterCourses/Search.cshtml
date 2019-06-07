@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CollageSystem.Core.Cours>
+@{
+    ViewBag.Title = "أضافه مواد للقسم";
+}
+
+@using (Ajax.BeginForm("Search", "SemesterCourses", new AjaxOptions()
+{
+    UpdateTargetId = "change",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "Post",
+    LoadingElementId = "progress"
+
+}))
+{
+    <table class="table">
+        <tr>
+            <td>
+                كود الماده
+            </td>
+            <td>
+                @Html.TextBox("CourseCode", ViewBag.CourseCode as string, new { @id = "CourseCode", @class = "form-control", placeholder = "كود الماده" })
+            </td>
+            <td></td>
+
+            <td>
+                اسم الماده
+            </td>
+            <td>
+                @Html.TextBox("CourseName", ViewBag.CourseCode as string, new { @id = "CourseName", @class = "form-control", placeholder = "أسم الماده" })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                متطلب الماده
+            </td>
+            <td>
+                @Html.DropDownList("CourseRefID", ViewBag.CourseRefID as SelectList, "اختر القسم", htmlAttributes: new { id = "ddlCourseRef", onchange = "document.getElementById('CourseRefIDSelected').value = (this.options[this.selectedIndex].value)", @class = "form-control" })
+                @Html.Hidden("CourseRefIDSelected", 0, new { @id = "CourseRefIDSelected" })
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+
+            <td>
+                <input type="submit" value="بحث" class="btn btn-default" />
+
+            </td>
+            <td></td>
+
+            <td></td>
+
+        </tr>
+    </table>
+
+
+}
+
+<div id="change">
+    @Html.Partial("_Search", Model)
+</div>
+
+
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-right: 46%;" />
+</div>
+

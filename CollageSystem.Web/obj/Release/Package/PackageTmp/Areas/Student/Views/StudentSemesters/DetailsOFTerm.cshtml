@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CollageSystem.Core.SemStudentCours>
+
+@{
+    ViewBag.Title = "SemesterResult";
+}
+
+<h2>نتيجه الترم</h2>
+
+<table class="table">
+    <tr>
+        <th>
+           درجة النظري
+        </th>
+        <th>
+           درجة الشفوي
+        </th>
+        <th>
+            درجة الميد ترم
+        </th>
+        <th>
+           درجة اعمال السنة
+        </th>
+        <th>
+            الدرجة النهائية 
+        </th>
+        <th>
+            كود المادة
+        </th>
+     
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PractiseMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OralMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidTermMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearWorkMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cours.CourseCode)
+            </td>
+         
+
+        </tr>
+    }
+
+</table>
+

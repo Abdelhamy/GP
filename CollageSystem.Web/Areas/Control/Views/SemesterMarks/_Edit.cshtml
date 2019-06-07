@@ -1,0 +1,100 @@
+﻿@model CollageSystem.Core.SemStudentCours
+
+
+<h2>تعديل الدرجات</h2>
+
+
+@*@using (Html.BeginForm())
+    {*@
+@using (Ajax.BeginForm("Edit", "SemesterMarks", new AjaxOptions()
+{
+    HttpMethod = "Post",
+    OnFailure = "OnFailureMarks()",
+    OnSuccess = "OnSuccessMarks()",
+    LoadingElementId = "progress"
+
+
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CourseID)
+    @Html.HiddenFor(model => model.SemStuID)
+    <table class="table table-bordered" dir="rtl">
+        <tr>
+            <td>
+                درجه الميدتيرم :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.MidTermMarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MidTermMarks, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                درجه الشفوى :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.OralMarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OralMarks, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                درجه العملى :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.PractiseMarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PractiseMarks, "", new { @class = "text-danger" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                درجه اعمال السنه :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.YearWorkMarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YearWorkMarks, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                درجه الامتحان النظرى  :
+            </td>
+            <td>
+                @Html.EditorFor(model => model.FinalMarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FinalMarks, "", new { @class = "text-danger" })
+
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                @Html.ActionLink("الرجوع لقائمه المواد", "Index", null, new { @class = "btn btn-info" })
+            </td>
+            <td>
+                <input type="submit" value="تعديل" class="btn btn-success" />
+
+
+            </td>
+
+        </tr>
+    </table>
+
+
+}
+
+<div id="progress" class="loader">
+    <img src="~/images/gifProgress.gif" style="width:60px ; margin-top: 25%; margin-left: 46%;" />
+</div>
+
+
+

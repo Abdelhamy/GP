@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Administration</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
+</head>
+<body dir="rtl">
+    <div class="navbar navbar-inverse navbar-fixed-top" dir="rtl">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#"><img src="~/Images/logo.png" class="navbar-brand" alt="" title="" /></a>
+
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="padding:10px">
+                    <li>
+                        @Html.ActionLink("تغير الباسورد", "Index", "Instroctor", null, new { @class = "btn btn-default li " })
+                    </li>
+                    <li>
+                        @Html.ActionLink("تسجيل المواد", "Index", "StudentSemesters", null, new { @class = "btn btn-default li" })
+                    </li>
+
+
+                </ul>
+            </div>
+         
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="font-family:'Arabic Typesetting' ; font-size:large">&copy; @DateTime.Now.Year - مشروع تخرج دفعه 35 علوم بنها</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
